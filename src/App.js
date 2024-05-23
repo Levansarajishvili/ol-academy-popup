@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+
+import React, { useState } from 'react';
+import Popup from '../src/Component/Popup';
 import './App.css';
 
 function App() {
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>ესეც მარტივი პოპაპი</h1>
+      <button onClick={togglePopup}>გახსენი ფანჯარა</button>
+      <Popup show={showPopup} handleClose={togglePopup}>
+        <h2>ეს პოპაპია!</h2>
+        <p>მიჰყევი გზას და არასოდეს დანებდე.</p>
+      </Popup>
     </div>
   );
 }
